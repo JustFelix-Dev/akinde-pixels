@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import type { MediaAsset, NavItem, SocialItem } from "@/src/lib/cms/types";
+import { ThemeToggle } from "@/src/components/site/ThemeToggle";
 
 type SidebarProps = {
   logo?: MediaAsset;
@@ -131,19 +132,22 @@ export function Sidebar({
             />
           )}
         </div>
-        <button
-          type="button"
-          onClick={() => setIsCollapsed((state) => !state)}
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100 sm:h-9 sm:w-9"
-          aria-expanded={!isCollapsed}
-          aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-        >
-          {isCollapsed ? (
-            <PanelLeftOpen className="h-4 w-4" aria-hidden />
-          ) : (
-            <PanelLeftClose className="h-4 w-4" aria-hidden />
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle placement="inline" className="lg:hidden" />
+          <button
+            type="button"
+            onClick={() => setIsCollapsed((state) => !state)}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100 sm:h-9 sm:w-9"
+            aria-expanded={!isCollapsed}
+            aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            {isCollapsed ? (
+              <PanelLeftOpen className="h-4 w-4" aria-hidden />
+            ) : (
+              <PanelLeftClose className="h-4 w-4" aria-hidden />
+            )}
+          </button>
+        </div>
       </div>
 
       <div

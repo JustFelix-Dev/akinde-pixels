@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="relative mx-auto flex max-w-[1500px] flex-col lg:flex-row">
-        <ThemeToggle />
+        <ThemeToggle className="hidden lg:inline-flex" />
         <Sidebar
           siteName={pageData.siteName}
           logo={pageData.logo}
