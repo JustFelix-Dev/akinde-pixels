@@ -9,6 +9,8 @@ import { ThemeToggle } from "@/src/components/site/ThemeToggle";
 import { WelcomeSection } from "@/src/components/site/WelcomeSection";
 import { getHomePageData } from "@/src/lib/cms/homepage";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const { isEnabled } = await draftMode();
   const pageData = await getHomePageData(isEnabled);
