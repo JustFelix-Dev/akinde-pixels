@@ -61,7 +61,10 @@ export const getHomePageData = async (isDraftMode = false): Promise<HomePageView
       footerText: siteSettings.footerText ?? fallback.footerText,
       bookNowUrl: siteSettings.bookNowUrl ?? fallback.bookNowUrl,
       hero: {
-        headline: homepage.heroHeadline ?? fallback.hero.headline,
+        prefix: homepage.heroPrefix ?? fallback.hero.prefix,
+        phrases: Array.isArray(homepage.heroPhrases)
+          ? homepage.heroPhrases.map((item) => item.text).filter(Boolean)
+          : fallback.hero.phrases,
         subtext: homepage.heroSubtext ?? fallback.hero.subtext,
         video:
           mapMedia(relationToObject(homepage.heroVideo)) ??
@@ -71,6 +74,10 @@ export const getHomePageData = async (isDraftMode = false): Promise<HomePageView
       welcomeTitle: homepage.welcomeTitle ?? fallback.welcomeTitle,
       welcomeBody: homepage.welcomeBody ?? fallback.welcomeBody,
       testimonialsTitle: homepage.testimonialsTitle ?? fallback.testimonialsTitle,
+      pricingEyebrow: homepage.pricingEyebrow ?? fallback.pricingEyebrow,
+      pricingHeadline: homepage.pricingHeadline ?? fallback.pricingHeadline,
+      pricingDescription: homepage.pricingDescription ?? fallback.pricingDescription,
+      pricingCtaLabel: homepage.pricingCtaLabel ?? fallback.pricingCtaLabel,
       galleryItems: galleryResult.docs.map((item) => ({
         id: String(item.id),
         title: item.title,

@@ -15,7 +15,7 @@ export function TestimonialsSection({ title, items }: TestimonialsSectionProps) 
       </div>
       <div className="grid gap-5 lg:grid-cols-2">
         {items.map((item) => (
-          <blockquote key={item.id} className="rounded-sm border border-zinc-200/80 bg-white/70 p-5 transition-colors hover:border-zinc-300 sm:p-7">
+          <blockquote key={item.id} className="rounded-sm border border-zinc-200 bg-white p-5 transition-colors hover:border-zinc-300 dark:border-zinc-700/50 dark:bg-zinc-900/40 dark:hover:border-zinc-600/60 sm:p-7">
             <div className="mb-5 flex items-center gap-3">
               {item.portrait ? (
                 <Image
@@ -29,11 +29,11 @@ export function TestimonialsSection({ title, items }: TestimonialsSectionProps) 
                 <span className="inline-block h-2 w-2 rounded-full bg-orange-500" aria-hidden />
               )}
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-zinc-800">{item.clientName}</p>
-                {item.role ? <p className="text-xs text-zinc-500">{item.role}</p> : null}
+                <p className="text-xs uppercase tracking-[0.2em] text-zinc-800 dark:text-zinc-200">{item.clientName}</p>
+                {item.role ? <p className="text-xs text-zinc-500 dark:text-zinc-400">{item.role}</p> : null}
               </div>
             </div>
-            <p className="text-base leading-relaxed text-zinc-700 sm:text-lg">&ldquo;{item.quote}&rdquo;</p>
+            <p className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300 sm:text-lg">&ldquo;{item.quote}&rdquo;</p>
           </blockquote>
         ))}
       </div>

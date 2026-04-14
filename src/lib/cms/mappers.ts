@@ -40,7 +40,8 @@ export const defaultHomePageView = (): HomePageView => ({
   footerText: "All right reserved © 2026 Akinde Pixels",
   bookNowUrl: "#book-now",
   hero: {
-    headline: "Want to create those timeless memories?",
+    prefix: "Want to create those",
+    phrases: ["timeless memories?", "cinematic moments?", "beautiful stories?"],
     subtext: "Reserve your spot today.",
     video: {
       url: "/hero-video.mp4",
@@ -52,6 +53,11 @@ export const defaultHomePageView = (): HomePageView => ({
   welcomeBody:
     "At Akinde Pixels, every click captures emotion and every frame tells your unique story. We approach each session with a calm, intentional process so you can be fully present while we document the moments that matter most.\n\nFrom weddings and portraits to lifestyle and events, we focus on real interactions, authentic expressions, and thoughtful composition. Every image is crafted to feel natural, cinematic, and deeply personal.\n\nYour memories deserve more than simple pictures. They deserve visual storytelling that remains timeless, elegant, and alive each time you revisit your gallery.",
   testimonialsTitle: "Testimonials",
+  pricingEyebrow: "Pricing",
+  pricingHeadline: "Get memorable shots.",
+  pricingDescription:
+    "Let us capture your best moments with a relaxed experience and timeless visuals.",
+  pricingCtaLabel: "Get memorable shots",
   galleryItems: [],
   pricingItems: [],
   testimonials: [

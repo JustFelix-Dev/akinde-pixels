@@ -25,10 +25,27 @@ export const Homepage: GlobalConfig = {
       relationTo: "media",
     },
     {
-      name: "heroHeadline",
+      name: "heroPrefix",
       type: "text",
       required: true,
-      defaultValue: "Want to create those timeless memories?",
+      defaultValue: "Want to create those",
+    },
+    {
+      name: "heroPhrases",
+      type: "array",
+      required: true,
+      fields: [
+        {
+          name: "text",
+          type: "text",
+          required: true,
+        },
+      ],
+      defaultValue: [
+        { text: "timeless memories?" },
+        { text: "cinematic moments?" },
+        { text: "beautiful stories?" },
+      ],
     },
     {
       name: "heroSubtext",
@@ -52,6 +69,27 @@ export const Homepage: GlobalConfig = {
       name: "testimonialsTitle",
       type: "text",
       defaultValue: "Testimonials",
+    },
+    {
+      name: "pricingEyebrow",
+      type: "text",
+      defaultValue: "Pricing",
+    },
+    {
+      name: "pricingHeadline",
+      type: "text",
+      defaultValue: "Get memorable shots.",
+    },
+    {
+      name: "pricingDescription",
+      type: "textarea",
+      defaultValue:
+        "Let us capture your best moments with a relaxed experience and timeless visuals.",
+    },
+    {
+      name: "pricingCtaLabel",
+      type: "text",
+      defaultValue: "Get memorable shots",
     },
   ],
 };

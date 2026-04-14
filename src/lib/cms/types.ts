@@ -15,7 +15,8 @@ export type SocialItem = {
 };
 
 export type HeroContent = {
-  headline: string;
+  prefix: string;
+  phrases: string[];
   subtext: string;
   video?: MediaAsset;
   fallbackImage?: MediaAsset;
@@ -58,6 +59,10 @@ export type HomePageView = {
   welcomeTitle: string;
   welcomeBody: string;
   testimonialsTitle: string;
+  pricingEyebrow: string;
+  pricingHeadline: string;
+  pricingDescription: string;
+  pricingCtaLabel: string;
   galleryItems: GalleryItemView[];
   pricingItems: PricingItemView[];
   testimonials: TestimonialView[];

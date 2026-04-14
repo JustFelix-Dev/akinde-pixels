@@ -15,7 +15,7 @@ export function HeroSection({ hero }: HeroSectionProps) {
 
   useEffect(() => {
     const animatedEl = animatedTextRef.current;
-    const phrases = ["timeless memories?", "cinematic moments?", "beautiful stories?"];
+    const phrases = hero.phrases.length > 0 ? hero.phrases : ["timeless memories?"];
 
     if (!animatedEl) {
       return;
@@ -68,19 +68,19 @@ export function HeroSection({ hero }: HeroSectionProps) {
     });
 
     return () => context.revert();
-  }, [hero.headline]);
+  }, [hero.phrases]);
 
   return (
     <section id="home" className="space-y-6">
-      <h1 className="mb-8 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-4xl md:mb-12 md:text-5xl">
-        <span>Want to create those </span>
+      <h1 className="mb-8 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-4xl md:mb-12 md:text-5xl dark:text-zinc-100">
+        <span>{hero.prefix} </span>
         <span
           ref={animatedTextRef}
           className="inline-block min-w-[12ch] text-orange-500 sm:min-w-[14ch]"
           aria-live="polite"
         />
       </h1>
-      <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-zinc-100 sm:aspect-video">
+      <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-zinc-100 sm:aspect-video dark:bg-zinc-800">
         {hero.video ? (
           <video className="h-full w-full object-cover" autoPlay muted loop playsInline controls={false}>
             <source src={hero.video.url} type={hero.video.mimeType || "video/mp4"} />

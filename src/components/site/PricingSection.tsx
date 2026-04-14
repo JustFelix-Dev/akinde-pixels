@@ -9,9 +9,20 @@ import type { PricingItemView } from "@/src/lib/cms/types";
 type PricingSectionProps = {
   items: PricingItemView[];
   bookNowUrl: string;
+  eyebrow: string;
+  headline: string;
+  description: string;
+  ctaLabel: string;
 };
 
-export function PricingSection({ items, bookNowUrl }: PricingSectionProps) {
+export function PricingSection({
+  items,
+  bookNowUrl,
+  eyebrow,
+  headline,
+  description,
+  ctaLabel,
+}: PricingSectionProps) {
   const featuredPackage = items[0];
   const rippleRef = useRef<HTMLSpanElement>(null);
   const rippleRingRef = useRef<HTMLSpanElement>(null);
@@ -52,7 +63,7 @@ export function PricingSection({ items, bookNowUrl }: PricingSectionProps) {
 
   return (
     <section id="pricing" className="py-2 sm:py-4">
-      <article className="relative mx-auto flex max-w-3xl flex-col items-center overflow-hidden rounded-sm border border-zinc-200 bg-white/70 px-5 py-8 text-center sm:px-8 sm:py-10">
+      <article className="relative mx-auto flex max-w-3xl flex-col items-center overflow-hidden rounded-sm border border-zinc-200 bg-white px-5 py-8 text-center dark:border-zinc-700/50 dark:bg-zinc-900/40 sm:px-8 sm:py-10">
         <span
           ref={rippleRef}
           className="absolute right-0 top-6 inline-flex h-20 w-20 -translate-y-1/3 translate-x-1/3 items-center justify-center rounded-full border border-orange-300/80 bg-orange-500/10 sm:top-12 sm:h-28 sm:w-28"
@@ -61,23 +72,21 @@ export function PricingSection({ items, bookNowUrl }: PricingSectionProps) {
           <span ref={rippleRingRef} className="absolute h-14 w-14 rounded-full border border-orange-400/70 sm:h-20 sm:w-20" />
           <span className="h-8 w-8 rounded-full bg-orange-500 sm:h-11 sm:w-11" />
         </span>
-        <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">Pricing</p>
-        <h3 className="mt-3 text-2xl font-medium tracking-tight text-zinc-900 sm:text-3xl">Get memorable shots.</h3>
+        <p className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">{eyebrow}</p>
+        <h3 className="mt-3 text-2xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-3xl">{headline}</h3>
         {featuredPackage?.description ? (
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 sm:text-base">{featuredPackage.description}</p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-base">{featuredPackage.description}</p>
         ) : (
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 sm:text-base">
-            Let us capture your best moments with a relaxed experience and timeless visuals.
-          </p>
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-300 sm:text-base">{description}</p>
         )}
         {featuredPackage?.priceLabel ? (
-          <p className="mt-4 text-xl font-light text-zinc-900 sm:text-2xl">{featuredPackage.priceLabel}</p>
+          <p className="mt-4 text-xl font-light text-zinc-900 dark:text-zinc-100 sm:text-2xl">{featuredPackage.priceLabel}</p>
         ) : null}
         <Link
           href={bookNowUrl}
-          className="mt-7 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white transition hover:bg-zinc-800 sm:px-6 sm:text-sm"
+          className="mt-7 inline-flex rounded-full bg-zinc-900 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white transition hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 sm:px-6 sm:text-sm"
         >
-          Get memorable shots
+          {ctaLabel}
         </Link>
       </article>
     </section>

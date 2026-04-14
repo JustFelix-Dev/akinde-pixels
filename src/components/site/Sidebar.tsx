@@ -107,22 +107,34 @@ export function Sidebar({
   return (
     <aside
       ref={asideRef}
-      className={`absolute inset-x-0 top-0 z-40 w-full border-b border-zinc-200/80 bg-white/90 p-3 backdrop-blur-sm sm:p-4 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-80 lg:flex-col lg:border-b-0 lg:border-r lg:bg-white/60 lg:p-8 ${
+      className={`absolute inset-x-0 top-0 z-40 h-16 w-full border-b border-zinc-200 bg-white px-4 sm:h-18 sm:px-5 lg:inset-auto lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-80 lg:flex-col lg:border-b-0 lg:border-r lg:bg-white lg:p-8 dark:border-zinc-700/80 dark:bg-zinc-900/90 lg:dark:bg-zinc-900/60 ${
         isCollapsed ? "lg:overflow-visible" : "lg:overflow-hidden"
       }`}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex h-full items-center justify-between lg:h-auto">
         <div className={`flex items-center transition-opacity ${isCollapsed ? "lg:opacity-0 lg:invisible" : ""}`}>
           {logo ? (
-            <Image src={logo.url} alt={logo.alt} width={105} height={32} className="h-auto w-auto sm:w-[112px]" />
+            <Image
+              src={logo.url}
+              alt={logo.alt}
+              width={105}
+              height={32}
+              className="h-auto w-auto dark:invert sm:w-[112px] lg:w-[136px]"
+            />
           ) : (
-            <Image src="/logo.png" alt={siteName} width={100} height={42} className="h-auto w-auto sm:w-[112px]" />
+            <Image
+              src="/logo.png"
+              alt={siteName}
+              width={100}
+              height={42}
+              className="h-auto w-auto dark:invert sm:w-[112px] lg:w-[136px]"
+            />
           )}
         </div>
         <button
           type="button"
           onClick={() => setIsCollapsed((state) => !state)}
-          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100 sm:h-9 sm:w-9"
           aria-expanded={!isCollapsed}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
@@ -136,7 +148,7 @@ export function Sidebar({
 
       <div
         ref={panelRef}
-        className={`absolute left-0 right-0 top-full mt-0 flex max-h-[calc(100vh-4rem)] flex-col border-b border-zinc-200/80 bg-white/95 px-4 pb-4 pt-3 shadow-lg backdrop-blur-sm sm:px-4 lg:static lg:mt-8 lg:min-h-0 lg:max-h-none lg:flex-1 lg:border-b-0 lg:bg-transparent lg:px-0 lg:pb-0 lg:pt-0 lg:shadow-none ${
+        className={`absolute left-0 right-0 top-full mt-0 flex max-h-[calc(100vh-4rem)] flex-col border-b border-zinc-200 bg-white px-4 pb-4 pt-3 shadow-lg sm:max-h-[calc(100vh-4.5rem)] sm:px-5 lg:static lg:mt-8 lg:min-h-0 lg:max-h-none lg:flex-1 lg:border-b-0 lg:bg-transparent lg:px-0 lg:pb-0 lg:pt-0 lg:shadow-none dark:border-zinc-700/80 dark:bg-zinc-900/95 lg:dark:bg-transparent ${
           isCollapsed
             ? "h-0 overflow-hidden border-b-0 px-0 pb-0 pt-0 opacity-0 shadow-none lg:h-auto lg:overflow-visible lg:border-b-0 lg:px-0 lg:pb-0 lg:pt-0 lg:opacity-100"
             : "overflow-hidden opacity-100"
@@ -153,7 +165,7 @@ export function Sidebar({
                     href={item.href}
                     className={`inline-flex items-center gap-3 rounded-md ${
                       isCollapsed ? "h-9 w-9 justify-center" : "px-2 py-1.5"
-                    } text-zinc-600 transition-all duration-200 hover:text-zinc-950 ${isCollapsed ? "hover:bg-zinc-900/5" : "hover:bg-transparent"}`}
+                    } text-zinc-600 transition-all duration-200 hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-zinc-100 ${isCollapsed ? "hover:bg-zinc-900/5 dark:hover:bg-zinc-100/10" : "hover:bg-transparent"}`}
                     aria-label={item.label}
                   >
                     {isCollapsed
@@ -179,7 +191,7 @@ export function Sidebar({
           </nav>
         </div>
 
-        <div className="mt-auto space-y-4 border-t border-zinc-200 pt-5 text-xs leading-relaxed text-zinc-500">
+        <div className="mt-auto space-y-4 border-t border-zinc-200 pt-5 text-xs leading-relaxed text-zinc-500 dark:border-zinc-700/70 dark:text-zinc-400">
           <div className="flex items-center gap-3">
             {socialItems.map((item) => {
               const label = item.label.toLowerCase();
@@ -188,7 +200,7 @@ export function Sidebar({
                 <Link
                   key={item.url}
                   href={item.url}
-                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900"
+                  className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-zinc-300 text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-500 dark:hover:text-zinc-100"
                   aria-label={item.label}
                   title={item.label}
                 >
